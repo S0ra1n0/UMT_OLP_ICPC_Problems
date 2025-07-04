@@ -1,0 +1,298 @@
+\documentclass{article}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[table]{xcolor}
+\usepackage{colortbl}
+\usepackage[backend=biber,natbib=true,style=alphabetic,maxbibnames=50]{biblatex}
+\addbibresource{/home/nqbh/reference/bib.bib}
+\usepackage[utf8]{vietnam}
+\usepackage{tocloft}
+
+\setlength{\parindent}{0pt}
+
+
+\usepackage{minted}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+    language=C++,                    % Ngôn ngữ lập trình
+    basicstyle=\ttfamily\footnotesize, % Cỡ chữ nhỏ hơn
+    keywordstyle=\color{blue},        % Màu từ khóa
+    commentstyle=\color{gray},        % Màu chú thích
+    stringstyle=\color{red},          % Màu chuỗi ký tự
+    numbers=left,                     % Hiển thị số dòng bên trái
+    numberstyle=\tiny\color{gray},    % Định dạng số dòng
+    stepnumber=1,                     % Mỗi dòng đều có số dòng
+    breaklines=true,                   % Tự động xuống dòng nếu quá dài
+    frame=single,                     % Đóng khung mã nguồn
+    showstringspaces=false
+}
+
+\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=red,citecolor=magenta]{hyperref}
+\usepackage{amsmath,amssymb,amsthm,enumitem,float,graphicx,mathtools,tikz}
+\usetikzlibrary{angles,calc,intersections,matrix,patterns,quotes,shadings}
+\allowdisplaybreaks
+\newtheorem{assumption}{Assumption}
+\newtheorem{baitoan}{}
+\newtheorem{cauhoi}{Câu hỏi}
+\newtheorem{conjecture}{Conjecture}
+\newtheorem{corollary}{Corollary}
+\newtheorem{dangtoan}{Dạng toán}
+\newtheorem{definition}{Definition}
+\newtheorem{dinhly}{Định lý}
+\newtheorem{dinhnghia}{Định nghĩa}
+\newtheorem{example}{Example}
+\newtheorem{ghichu}{Ghi chú}
+\newtheorem{hequa}{Hệ quả}
+\newtheorem{hypothesis}{Hypothesis}
+\newtheorem{lemma}{Lemma}
+\newtheorem{luuy}{Lưu ý}
+\newtheorem{nhanxet}{Nhận xét}
+\newtheorem{notation}{Notation}
+\newtheorem{note}{Note}
+\newtheorem{principle}{Principle}
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}
+\newtheorem{question}{Question}
+\newtheorem{remark}{Remark}
+\newtheorem{theorem}{Theorem}
+\newtheorem{vidu}{Ví dụ}
+\usepackage[left=1cm,right=1cm,top=5mm,bottom=5mm,footskip=4mm]{geometry}
+\def\labelitemii{$\circ$}
+\DeclareRobustCommand{\divby}{%
+	\mathrel{\vbox{\baselineskip.65ex\lineskiplimit0pt\hbox{.}\hbox{.}\hbox{.}}}%
+}
+\setlist[itemize]{leftmargin=*}
+\setlist[enumerate]{leftmargin=*}
+
+\title{UMT Olympiad in Informatics{\it\&} ICPC problems} 
+\author{Nguyễn Lê Đăng Khoa\footnote{A game-addicted student of UMT's School of Technology, somehow won the Third Prize award in the 33rd Vietnamese Student Olympiad in Informatics (OLP'24).\\ Email: {\tt nguyenledangkhoa1510@gmail.com, khoa.2302700001@st.umt.edu.vn}. Github: \url{https://github.com/S0ra1n0}.}}
+\date{\today}
+
+\begin{document}
+\maketitle
+\begin{abstract}
+            
+	\textbf{Code:}
+	\begin{quote}
+		\begin{itemize}
+			\item Bài 1: \url{}.
+			\item Bài 2: \url{}.\\
+		\end{itemize}
+	\end{quote}
+\end{abstract}
+\tableofcontents
+
+%------------------------------------------------------------------------------%
+
+\section{Problem 1}
+\vspace{10pt}
+\subsection{Ảnh bài tập}
+
+\begin{center}
+    \includegraphics[width=1\textwidth]{Ảnh chụp màn hình 2025-07-03 151042.png}
+\end{center}
+
+\vspace{10pt}
+
+\subsection{Lời giải Câu 1a}
+
+\textbf{Giải thích thuật toán: }Từ điểm đang xét (Bắt đầu từ điểm (A) theo yêu cầu đề bài), tính f(n) = g(n) + h(n) của các điểm liên kết với nó, sau đó lấy điểm với f(n) nhỏ nhất và tiếp tục xét với điểm mới được lấy. Kết thúc khi điểm được xét là điểm kết thúc, tức điểm (J).
+\vspace{10pt}
+
+\textbf{Chạy thuật toán:}
+\vspace{10pt}
+
+Ans = 0 (kết quả hiện tại)
+\vspace{5pt}
+
+Từ điểm A ta có các điểm liên kết:
+\begin{itemize}
+    \item Điểm B: f(B) = g(B) + h(B) = $6 + 8 = 14$
+    \item Điểm F: f(F) = g(F) + h(F) = $3 + 6 = 9$ (min)
+\end{itemize}
+\textbf{Kết quả:} Lấy điểm F và ans += g(F) (ans = 0 + 3 = 3)
+\vspace{10pt}
+
+Từ điểm F ta có các điểm liên kết:
+\begin{itemize}
+    \item Điểm A: Đã visit nên không xét
+    \item Điểm G: f(G) = g(G) + h(G) = $1 + 5 = 6$ (min)
+    \item Điểm H: f(H) = g(H) + h(H) = $7 + 3 = 10$
+\end{itemize}
+\textbf{Kết quả:} Lấy điểm G và ans += g(G) (ans = 3 + 1 = 4)
+\vspace{10pt}
+
+Từ điểm G ta có các điểm liên kết:
+\begin{itemize}
+    \item Điểm G: Đã visit nên không xét
+    \item Điểm I: f(I) = g(I) + h(I) = $3 + 1 = 4$ (min)
+\end{itemize}
+\textbf{Kết quả:} Lấy điểm I và ans += g(I) (ans = 4 + 3 = 7)
+\vspace{10pt}
+
+Từ điểm I ta có các điểm liên kết:
+\begin{itemize}
+    \item Điểm E: f(E) = g(E) + h(E) = $5 + 3 = 8$
+    \item Điểm G: Đã visit nên không xét
+    \item Điểm H: Đã visit nên không xét
+    \item Điểm J: f(F) = g(J) + h(J) = $3 + 6 = 9$ (Điểm kết thúc)
+\end{itemize}
+\textbf{Kết quả:} Lấy điểm J và ans += g(J) (ans = 7 + 3 = 10)
+\vspace{10pt}
+
+\textbf{Đã tới điểm J và ans = 10}
+\vspace{10pt}
+
+\subsection{Code câu 1B}
+\vspace{10pt}
+
+\begin{lstlisting}
+#include<bits/stdc++.h>
+using namespace std;
+
+char c[10] = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J'};
+int h[10] = {10, 8, 5, 7, 3, 6, 5, 3, 1, 0};
+vector<vector<pair<char, int>>> linked(10);
+
+void initialize() {
+    for (int i = 0; i < 10; ++i) {
+        switch (c[i]) {
+            case 'A':
+                linked[i].push_back(make_pair('B', 6));
+                linked[i].push_back(make_pair('F', 3));
+                break;
+            case 'B':
+                linked[i].push_back(make_pair('A', 6));
+                linked[i].push_back(make_pair('C', 3));
+                linked[i].push_back(make_pair('D', 2));
+                break;
+            case 'C':
+                linked[i].push_back(make_pair('B', 3));
+                linked[i].push_back(make_pair('D', 1));
+                linked[i].push_back(make_pair('E', 5));
+                break;
+            case 'D':
+                linked[i].push_back(make_pair('B', 2));
+                linked[i].push_back(make_pair('C', 1));
+                linked[i].push_back(make_pair('E', 8));
+                break;
+            case 'E':
+                linked[i].push_back(make_pair('C', 5));
+                linked[i].push_back(make_pair('D', 8));
+                linked[i].push_back(make_pair('I', 5));
+                linked[i].push_back(make_pair('J', 5));
+                break;
+            case 'F':
+                linked[i].push_back(make_pair('A', 3));
+                linked[i].push_back(make_pair('G', 1));
+                linked[i].push_back(make_pair('H', 7));
+                break;
+            case 'G':
+                linked[i].push_back(make_pair('F', 1));
+                linked[i].push_back(make_pair('I', 3));
+                break;
+            case 'H':
+                linked[i].push_back(make_pair('F', 7));
+                linked[i].push_back(make_pair('I', 2));
+                break;
+            case 'I':
+                linked[i].push_back(make_pair('E', 5));
+                linked[i].push_back(make_pair('G', 3));
+                linked[i].push_back(make_pair('H', 2));
+                linked[i].push_back(make_pair('J', 3));
+                break;
+            case 'J':
+                linked[i].push_back(make_pair('E', 5));
+                linked[i].push_back(make_pair('I', 3));
+                break;
+        }
+    }
+}
+
+int main() {
+    initialize();
+    //Choose (A) to start and (J) to end
+    deque<pair<char, pair<int, int>>> q;
+    //format of vector: ('A', ('A' - 'A', 0))
+    q.push_back(make_pair('A', make_pair(0, 0)));
+    int ans;
+    vector<bool> visited(10, 0);
+    visited[1] = 1;
+    bool check = 0;
+    cout << "A 0 0 (Start)" << "\n";
+    while (!q.empty() && !check) {
+        int mini = 1e9, posi = q[0].second.first;
+        char cur = q[0].first;
+        int dist = q[0].second.second;
+        q.pop_front();
+        int nextposi, nextdist;
+        char nextchar;
+        for (int i = 0; i < linked[posi].size(); ++i) {
+            int tempposi;
+            for (int j = 0; j < 10; ++j) {if (c[j] == linked[posi][i].first) {tempposi = j; break;}}
+            if (tempposi == 9) {
+                nextposi = tempposi;
+                nextchar = 'J';
+                nextdist = dist + linked[posi][i].second;
+                check = 1;
+                break;
+            }
+            if (!visited[tempposi]) {
+                visited[tempposi] = 1;
+                int temp = dist + linked[posi][i].second + h[tempposi];
+                if (temp <= mini) {
+                    nextchar = linked[posi][i].first;
+                    nextdist = linked[posi][i].second;
+                    nextposi = tempposi; 
+                    mini = temp;
+                }
+            }
+        }
+        if (!check) {
+            q.push_back(make_pair(nextchar, make_pair(nextposi, dist + nextdist)));
+            cout << nextchar << " " << nextposi << " " << dist + nextdist << "\n";
+        }
+        else {
+            ans = nextdist;
+            cout << nextchar << " " << nextposi << " " << nextdist << " (End)\n";
+        }
+       
+    }
+    cout << "The cost-effective path from node(A) to (J) costs: " << ans;
+}
+	
+\end{lstlisting}
+%------------------------------------------------------------------------------%
+\vspace{10pt}
+\section{Problem 2}
+\vspace{10pt}
+
+\subsection{Ảnh bài tập}
+
+\subsection{Lời giải Câu 2a}
+\vspace{10pt}
+
+\subsection{Code Câu 2b}
+\vspace{10pt}
+
+\section{Miscellaneous}
+
+\subsection{Contributors}
+
+\begin{enumerate}
+	\item {\sc NGUYỄN QUẢN BÁ HỒNG - TEMPLATE}: \url{https://github.com/NQBH/advanced_STEM_beyond/blob/main/VMC/NQBH_VMC.tex}.
+        \item  {\sc ĐẶNG PHÚC AN KHANG - REFERENCE}: 
+    \url{https://github.com/GrootTheDeveloper/OLP-ICPC/blob/master/2025/COMPETITIVE_REPORT.tex}.
+\end{enumerate}
+        
+
+%------------------------------------------------------------------------------%
+
+\printbibliography[heading=bibintoc]
+	
+\end{document}
